@@ -270,7 +270,7 @@ class BaseView
 	function __construct($arg = null)
 	{
 		// Pass All Query String Data to the View.
-		$get = $this->form_data =  filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);;
+		$get = $this->form_data =  filter_input_array(INPUT_GET, FILTER_UNSAFE_RAW);;
 		if (!empty($get)) {
 			foreach ($get as $obj => $val) {
 				$this->$obj = $val;

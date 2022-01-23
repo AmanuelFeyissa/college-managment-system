@@ -229,7 +229,7 @@ class BaseController{
 	function set_request($get = array()){
 		$this->request = new stdClass;
 		// filter all values of the GET Request
-		$get = filter_var_array($get, FILTER_SANITIZE_STRING);
+		$get = filter_var_array($get, FILTER_UNSAFE_RAW);
 		if(!empty($get)){
 			foreach($get as $obj => $val){
 				$this->request->$obj = $val; //pass each request data to the current page request property
